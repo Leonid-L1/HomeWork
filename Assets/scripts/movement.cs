@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movement : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     [SerializeField] private Transform _firstPoint;
     [SerializeField] private Transform _secondPoint;
+
     private float _speed = 2f;
     private bool _isReach = true;
 
@@ -15,7 +16,7 @@ public class movement : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, _secondPoint.position, _speed * Time.deltaTime);
 
-            if (transform.position == _secondPoint.position)
+            if (transform.position.x == _secondPoint.position.x)
             {
                 _isReach = false;
             }
@@ -24,7 +25,7 @@ public class movement : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, _firstPoint.position, _speed * Time.deltaTime);
                 
-            if (transform.position == _firstPoint.position)
+            if (transform.position.x == _firstPoint.position.x)
             {
                 _isReach = true;
             }
